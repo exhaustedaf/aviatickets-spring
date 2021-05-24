@@ -1,15 +1,13 @@
 package com.aerosales.aviaticketsspring.pojo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="users")
 public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer users_id;
+    private Integer user_id;
 
     private String username;
 
@@ -26,11 +24,11 @@ public class Users {
     }
 
     public Integer getUsers_id() {
-        return users_id;
+        return user_id;
     }
 
     public void setUsers_id(Integer users_id) {
-        this.users_id = users_id;
+        this.user_id = users_id;
     }
 
     public String getUsername() {

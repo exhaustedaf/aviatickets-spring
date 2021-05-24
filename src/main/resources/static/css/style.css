@@ -71,7 +71,7 @@ header > .right {
   align-items: center;
   display: flex;
   justify-content: center;
-  background-image: url("../images/banner.png");
+  background-image: url("/images/banner.png");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -201,7 +201,7 @@ h3 {
   clear:both;
 }
 
-input[type="text"] {
+input[type="text"], input[type=password] {
 	padding:10px;
 	width:93%;
 	float:left;
@@ -287,7 +287,7 @@ input[type="submit"] {
   outline: none;
   padding: 10px 20px;
   margin-top: 50px;
-	cursor:pointer;
+    cursor:pointer;
 	transition: 0.5s all ease;
 }
 
@@ -305,6 +305,8 @@ input[type="submit"]:hover  {
 	width:48%;
 	float:left;
 }
+
+
 
 #footer {
   background-color: #111111;
@@ -332,14 +334,14 @@ input[type="submit"]:hover  {
 
 @font-face {
   font-family: "BainsleyBold";
-  src: url("../fonts/BainsleyBold.ttf") format("truetype");
+  src: url("/fonts/BainsleyBold.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
 
 @font-face {
   font-family: "BainsleyBoldItalic";
-  src: url("../fonts/BainsleyBoldItalic.ttf") format("truetype");
+  src: url("/fonts/BainsleyBoldItalic.ttf") format("truetype");
   font-style: normal;
   font-weight: normal;
 }
