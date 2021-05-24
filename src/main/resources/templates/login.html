@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +11,29 @@
 </head>
 <body>
   <header>
-    <a class="logo" href="index.html">Aerosales</a>
+    <a class="logo" href="/">Aerosales</a>
     <a class="right" href="orders.html"><i class="fas fa-list-alt"></i> Заказы</a>
     <a sec:authorize="isAuthenticated()" class="right" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Выйти</a>
     <a sec:authorize="isAnonymous()" class="right" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i> Войти</a>
   </header>
-  <form th:action="/login" method="post">
+  <section id="banner">
+    <div class="inner">
+      <h1>Вход в аккаунт</h1>
+    </div>
+  </section>
+  <form th:action="@{/login}" method="post">
     <div th:if="${param.error}">
       Неправильно введено имя пользователя или пароль.
     </div>
     <div th:if="${param.logout}">
       Вы вышли из аккаунта.
     </div>
-    <div><label>Имя пользователя : </label></div>
-    <div><input type="text" placeholder="Введите имя пользователя" name="username" required></div>
-    <div><label>Пароль : </label></div>
-    <div><input type="password" placeholder="Введите пароль" name="password" required></div>
-    <button type="submit">Войти</button>
+    <label><h3>Введите имя пользователя:</h3></label>
+    <input type="text" placeholder="Введите имя пользователя" name="username" required><br>
+    <label><h3>Введите пароль: </h3></label>
+    <input type="password" placeholder="Введите пароль" name="password" required>
+    <input type="submit" value="Войти">
+    <a href="/registration">Зарегистрироваться</a>
   </form>
   <footer id="footer">
     <div class="inner">

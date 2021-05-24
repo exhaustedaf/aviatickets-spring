@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import javax.sql.DataSource;
 
@@ -19,7 +20,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/", "/js/**", "/css/**", "/font-awesome/**", "/fonts/**", "/images/**").permitAll()
+                    .antMatchers("/", "/js/**", "/css/**", "/font-awesome/**", "/fonts/**",
+                            "/images/**", "/registration").permitAll()
                     .anyRequest().authenticated()
                 .and()
                     .formLogin()
@@ -27,7 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and()
                     .logout()
-                    .permitAll();
+                    .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/login");
     }
 
     @Override
@@ -35,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
                 .dataSource(dataSource)
                 .passwordEncoder(NoOpPasswordEncoder.getInstance())
-                .usersByUsernameQuery("select username, password from users where username=?")
-                .authoritiesByUsernameQuery("select u.username, u.role from users where u.username=?");
+                .usersByUsernameQuery("select username, password, 'true' as enabled from users where username=?")
+                .authoritiesByUsernameQuery("select username, 'ROLE_USER' from users where username=?");
     }
 }
