@@ -12,7 +12,7 @@
 <body>
   <header>
     <a class="logo" href="/">Aerosales</a>
-    <a class="right" href="orders.html"><i class="fas fa-list-alt"></i> Заказы</a>
+    <a class="right" href="/orders"><i class="fas fa-list-alt"></i> Заказы</a>
 	  <a sec:authorize="isAuthenticated()" class="right" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Выйти</a>
 	  <a sec:authorize="isAnonymous()" class="right" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i> Войти</a>
   </header>
@@ -23,106 +23,8 @@
     </div>
   </section>
   <div class="main-agileinfo">
-		<div class="sap_tabs">
-			<div id="horizontalTab">
-				<ul class="resp-tabs-list">
-					<li class="resp-tab-item"><span>Туда-обратно</span></li>
-					<li class="resp-tab-item"><span>Только туда</span></li>
-				</ul>
-				<div class="resp-tabs-container">
-					<div class="tab-1 resp-tab-content roundtrip">
-						<form action="#" method="post">
-							<div class="from">
-								<h3>Откуда</h3>
-								<input type="text" name="city" class="city1" placeholder="Введите город отправления" required="">
-							</div>
-							<div class="to">
-								<h3>Куда</h3>
-								<input type="text" name="city" class="city2" placeholder="Введите город назначения" required="">
-							</div>
-							<div class="clear"></div>
-							<div class="date">
-								<div class="depart">
-									<h3>Дата отправления</h3>
-									<input id="datepicker" name="Text" type="text" required="">
-								</div>
-								<div class="return">
-									<h3>Дата возвращения</h3>
-									<input id="datepicker1" name="Text" type="text" required="">
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="class">
-								<h3>Класс</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Эконом</option>
-									<option value="null">Бизнес</option>
-								</select>
-							</div>
-							<div class="clear"></div>
-							<div class="numofppl">
-								<div class="adults">
-									<h3>Количество пассажиров:</h3>
-									<div class="quantity">
-										<div class="quantity-select">
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-							<input type="submit" value="Найти рейсы">
-						</form>
-					</div>
-					<div class="tab-1 resp-tab-content oneway">
-						<form action="#" method="post">
-							<div class="from">
-								<h3>Откуда</h3>
-								<input type="text" name="city" class="city1" placeholder="Введите город отправления" required="">
-							</div>
-							<div class="to">
-								<h3>Куда</h3>
-								<input type="text" name="city" class="city2" placeholder="Введите город назначения" required="">
-							</div>
-							<div class="clear"></div>
-							<div class="date">
-								<div class="depart">
-									<h3>Дата отправления</h3>
-									<input class="date" id="datepicker2" name="Text" type="text" required="">
-								</div>
-							</div>
-							<div class="class">
-								<h3>Класс</h3>
-								<select id="w3_country1" onchange="change_country(this.value)" class="frm-field required">
-									<option value="null">Эконом</option>
-									<option value="null">Бизнес</option>
-								</select>
-							</div>
-							<div class="clear"></div>
-							<div class="numofppl">
-								<div class="adults">
-									<h3>Количество пассажиров:</h3>
-									<div class="quantity">
-										<div class="quantity-select">
-											<div class="entry value-minus">&nbsp;</div>
-											<div class="entry value"><span>1</span></div>
-											<div class="entry value-plus active">&nbsp;</div>
-										</div>
-									</div>
-								</div>
-								<div class="clear"></div>
-							</div>
-							<div class="clear"></div>
-							<input type="submit" value="Search Flights">
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<a href="/flights/search" class="btn">Искать рейсы!</a>
+  </div>
   <footer id="footer">
     <div class="inner">
       <p>Aerosales - сервис, который создан в 2021 году для быстрой покупки билетов на самолёт в любой город мира, где есть аэропорт. Я надеюсь, что всё работает нормально.</p>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/font-awesome/css/all.css">
-    <title>Войти в аккаунт</title>
+    <title>Список рейсов</title>
 </head>
 <body>
 <header>
@@ -18,16 +18,20 @@
 </header>
 <section id="banner">
     <div class="inner">
-        <h1>Регистрация</h1>
+        <h1>Найденные рейсы</h1>
     </div>
 </section>
-<form th:action="@{/registration}" method="post">
-    <label><h3>Введите имя пользователя:</h3></label>
-    <input type="text" placeholder="Введите имя пользователя" name="username" required><br>
-    <label><h3>Введите пароль: </h3></label>
-    <input type="password" placeholder="Введите пароль" name="password" required>
-    <input type="submit" value="Зарегистрироваться">
-</form>
+<div th:each="fl, iterStat : ${flights}" th:if="${iterStat.index >= iterStat.size-2}">
+    <h3 th:text="${fl.flightName}"/>
+    <h3 th:text="${fl.flightDuration}"/>
+    <h3 th:text="${fl.fromPlace}"/>
+    <h3 th:text="${fl.toPlace}"/>
+    <h3 th:text="${fl.deptDate}"/>
+    <h3 th:text="${fl.arrivalDate}"/>
+    <h3 th:text="${fl.travelClass}"/>
+    <h3 th:text="${fl.ticketsAmount}"/>
+    <h3 th:text="${fl.price}"/>
+</div>
 <footer id="footer">
     <div class="inner">
         <p>Aerosales - сервис, который создан в 2021 году для быстрой покупки билетов на самолёт в любой город мира, где есть аэропорт. Я надеюсь, что всё работает нормально.</p>

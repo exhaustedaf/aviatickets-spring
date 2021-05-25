@@ -51,6 +51,15 @@ a:hover {
   color: #555555;
 }
 
+.btn {
+    display: inline-block;
+    background: #212121;
+    color: #fff;
+    padding: 1rem 1.5rem;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
 header > .logo {
   font-size: 200%;
 }
@@ -305,8 +314,6 @@ input[type="submit"]:hover  {
 	width:48%;
 	float:left;
 }
-
-
 
 #footer {
   background-color: #111111;

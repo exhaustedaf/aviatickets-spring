@@ -12,7 +12,7 @@
 <body>
   <header>
     <a class="logo" href="/">Aerosales</a>
-    <a class="right" href="orders.html"><i class="fas fa-list-alt"></i> Заказы</a>
+    <a class="right" href="/orders"><i class="fas fa-list-alt"></i> Заказы</a>
     <a sec:authorize="isAuthenticated()" class="right" th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i> Выйти</a>
     <a sec:authorize="isAnonymous()" class="right" th:href="@{/login}"><i class="fas fa-sign-in-alt"></i> Войти</a>
   </header>
@@ -43,5 +43,10 @@
       </div>
     </div>
   </footer>
+  <script src="/js/jquery.min.js"> </script>
+  <script src="/js/easyResponsiveTabs.js" type="text/javascript"></script>
+  <script src="/js/script.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/css/jquery-ui.css" />
+  <script src="/js/jquery-ui.js"></script>
 </body>
 </html>

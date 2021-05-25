@@ -31,10 +31,6 @@ public class Users {
         return user_id;
     }
 
-    public void setUsers_id(Integer users_id) {
-        this.user_id = users_id;
-    }
-
     public String getUsername() {
         return username;
     }
