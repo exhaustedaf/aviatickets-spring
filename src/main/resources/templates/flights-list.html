@@ -21,17 +21,26 @@
         <h1>Найденные рейсы</h1>
     </div>
 </section>
-<div th:each="fl, iterStat : ${flights}" th:if="${iterStat.index >= iterStat.size-2}">
-    <h3 th:text="${fl.flightName}"/>
-    <h3 th:text="${fl.flightDuration}"/>
-    <h3 th:text="${fl.fromPlace}"/>
-    <h3 th:text="${fl.toPlace}"/>
-    <h3 th:text="${fl.deptDate}"/>
-    <h3 th:text="${fl.arrivalDate}"/>
-    <h3 th:text="${fl.travelClass}"/>
-    <h3 th:text="${fl.ticketsAmount}"/>
-    <h3 th:text="${fl.price}"/>
-</div>
+<table>
+    <tr>
+        <th>Рейс</th>
+        <th>Длительность (часов)</th>
+        <th>Время вылета</th>
+        <th>Время прилёта</th>
+        <th>Класс обслуживания</th>
+        <th>Цена</th>
+        <th></th>
+    </tr>
+    <tr th:each="fl, iterStat : ${flights}" th:if="${iterStat.index >= iterStat.size-2}">
+        <td th:text="${fl.flightName}"/>
+        <td th:text="${fl.flightDuration}"/>
+        <td th:text="${fl.deptDate}"/>
+        <td th:text="${fl.arrivalDate}"/>
+        <td th:text="${fl.travelClass}"/>
+        <td th:text="${fl.price}"/>
+        <td class="btn"><a th:href="'addOrder/' + ${fl.flightId}">Купить билет</a></td>
+    </tr>
+</table>
 <footer id="footer">
     <div class="inner">
         <p>Aerosales - сервис, который создан в 2021 году для быстрой покупки билетов на самолёт в любой город мира, где есть аэропорт. Я надеюсь, что всё работает нормально.</p>

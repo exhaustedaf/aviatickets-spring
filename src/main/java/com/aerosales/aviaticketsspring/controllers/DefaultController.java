@@ -13,7 +13,7 @@ public class DefaultController {
         return "index";
     }
 
-    @GetMapping("login")
+    @GetMapping("/login")
     public String login(Model model) {
         return "login";
     }

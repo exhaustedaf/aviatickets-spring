@@ -1,12 +1,14 @@
 package com.aerosales.aviaticketsspring.pojo;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="users")
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="user_id")
     private Integer user_id;
 
@@ -18,6 +20,20 @@ public class Users {
     
     @Column(name="role")
     private String role;
+
+    @ManyToMany(cascade = CascadeType.DETACH, fetch = FetchType.EAGER)
+    @JoinTable(name="user_flight_list",
+            joinColumns = @JoinColumn(name="user_id"),
+            inverseJoinColumns = @JoinColumn(name="flight_id"))
+    private Set<FlightDetails> flightDetailsList;
+
+    public Set<FlightDetails> getFlightDetailsList() {
+        return flightDetailsList;
+    }
+
+    public void setFlightDetailsList(Set<FlightDetails> flightDetailsList) {
+        this.flightDetailsList = flightDetailsList;
+    }
 
     public Users() { }
 

@@ -1,12 +1,14 @@
 package com.aerosales.aviaticketsspring.pojo;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name="flight_details")
 public class FlightDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="flight_id")
     private Integer flightId;
 
@@ -36,6 +38,17 @@ public class FlightDetails {
 
     @Column(name="price")
     private Integer price;
+
+    @ManyToMany(mappedBy = "flightDetailsList", fetch = FetchType.EAGER)
+    private Set<Users> userList;
+
+    public Set<Users> getUserList() {
+        return userList;
+    }
+
+    public void setUserList(Set<Users> userList) {
+        this.userList = userList;
+    }
 
     public FlightDetails(String flightName, Integer flightDuration, String fromPlace, String toPlace,
                          String deptDate, String arrivalDate, String travelClass, Integer ticketsAmount, Integer price) {

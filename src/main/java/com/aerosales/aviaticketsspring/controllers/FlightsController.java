@@ -68,6 +68,8 @@ public class FlightsController {
                 String maxTakeoffTime = times.getJSONObject(0).getString("maxTakeoffTime");
                 String minLandingTime = times.getJSONObject(0).getString("minLandingTime");
                 String maxLandingTime = times.getJSONObject(0).getString("maxLandingTime");
+                minDuration /= 60;
+                maxDuration /= 60;
                 FlightDetails firstFlight = new FlightDetails(dept_city + "-" + dest_city, minDuration, dept_city,
                         dest_city, minTakeoffTime, minLandingTime, travel_class, tickets_amount, minTotalFare);
                 FlightDetails secondFlight = new FlightDetails(dept_city + "-" + dest_city, maxDuration, dept_city,
@@ -91,6 +93,8 @@ public class FlightsController {
                 String maxTakeoffTime = times.getJSONObject(0).getString("maxTakeoffTime");
                 String minLandingTime = times.getJSONObject(0).getString("minLandingTime");
                 String maxLandingTime = times.getJSONObject(0).getString("maxLandingTime");
+                minDuration /= 60;
+                maxDuration /= 60;
                 FlightDetails firstFlight = new FlightDetails(dept_city + "-" + dest_city, minDuration, dept_city,
                         dest_city, minTakeoffTime, minLandingTime, travel_class, tickets_amount, minTotalFare);
                 FlightDetails secondFlight = new FlightDetails(dept_city + "-" + dest_city, maxDuration, dept_city,
